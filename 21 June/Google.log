@@ -1,0 +1,63 @@
+4+5
+9
+console.log(4+5)
+VM146:1 9
+undefined
+console.log('Hello') ? console.log('1') : console.log('2')
+VM200:1 Hello
+VM200:1 2
+undefined
+console.log('Hello') ? console.log('1') : '2'
+VM203:1 Hello
+"2"
+'hello'
+"hello"
+'hello'+'bye'
+"hellobye"
+'hello'
+"hello"
+console.log('hello')
+VM233:1 hello
+undefined
+alert(9+10)
+undefined
+confirm('Hello')
+false
+confirm('Hello')
+true
+confirm('Hello')?'Yes':'No'
+"No"
+confirm('Hello')?'Yes':'No'
+"Yes"
+prompt("Enter something")
+"xyz"
+prompt("Enter something")
+null
+prompt("Enter something")?'Hello':'Bye'
+"Bye"
+prompt("Enter something")?'Hello':'Bye'
+"Bye"
+prompt("Enter something")?'Hello':'Bye'
+"Bye"
+prompt("Enter something")?'Hello':'Bye'
+"Hello"
+prompt("Enter swomething")
+"4524"
+"4"+"5"
+"45"
+4+5
+9
+a=parseFloat(prompt("Enter a number"))
+56
+b=parseFloat(prompt("Enter a number"))
+42
+a+b
+98
+parseFloat("fhsfhds")
+NaN
+parseFloat("45jdshfj")
+45
+parseFloat("djchsdjv45jdshfj")
+NaN
+parseFloat("djchsdjv45")
+NaN
