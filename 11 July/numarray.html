@@ -1,0 +1,51 @@
+<script>
+	var numarray=[4,8,2,7,4,6,1,0];
+	console.log(numarray);
+	var p=numarray.push('hello');	
+	console.log(numarray,p);
+	p=numarray.pop();
+	console.log(numarray,p);
+	
+	
+	p=numarray.unshift(78);	
+	console.log(numarray,p);
+	
+	p=numarray.shift();		
+	console.log(numarray,p);
+	
+	
+	//slice(startIndex,endIndex)
+	//pagination
+	/*
+	
+	
+	arr -> 30 0-> 29
+
+	per page 5
+
+	newArray=arr.slice(pageno*5,pageno*5+5);
+	page 0 -> arr.slice(0,5)  -> 0-4
+	page 1 -> arr.slice(5,10) -> 5-9
+
+	*/
+	var returnArray=numarray.slice(3,6);
+	console.log(returnArray);
+	console.log(numarray);
+	
+	
+	// splice(startIndex,length,any no. of arguments)
+	// splice can be used to delete a particular index => splice(index,1)
+	// splice can be used to insert a value at particular index => splice(index,0,value)
+	var splicedArray=numarray.splice(3,3);
+	console.log(splicedArray);
+	console.log(numarray);
+	
+	
+	numarray.reverse();
+	console.log(numarray);
+	
+	
+	
+	
+	
+</script>

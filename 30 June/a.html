@@ -1,0 +1,65 @@
+<script>
+	
+	//Immediately Invoked Function Expression
+	(function(){
+		console.log('App loaded');
+	})()
+
+	// 1st Method
+	function sum(a,b){
+		return a+b;
+	}
+	
+	
+	
+	//2nd Method
+	sum2=function(a,b){
+		return a+b;
+	}
+	
+	
+	
+	// Method in ES 6
+	sum2=function(a=0){
+		return a*a;
+	}
+	
+	// Method in ES 5 (prefrable for front end)
+	sum2=function(a){
+		a=a||0; 	//if(a==undefined) a=0;
+		return a*a;
+	}
+	
+	
+	test=function(f){
+		//    sum2(0) +sum2(1) +sum2(-1)
+		return f(0)+f(1)+f(-1);
+	}
+	
+	
+	sayHello=function(){
+		console.log("Hello");
+	}
+	
+	// setTimeout(fn,number)
+	//setTimeout(sum2,20*60*1000);
+	
+	
+	//setInterval(sayHello,5000);
+	
+	setTimeout(function(){ console.log('Bye');},5000);
+	
+	
+	myfunction=function(){
+		var x=0;                // x-> 00050
+		return function(){
+			x++;			// x->00050
+			return x;
+		}
+	}
+	
+	
+	
+	
+	
+</script>
