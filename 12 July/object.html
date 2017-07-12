@@ -1,0 +1,36 @@
+<script>
+	var obj={
+		a:1,
+		b:'hello',
+		'my key':400,
+		arr:[4,6,7],
+		fn:function(){
+		},
+		o:{
+			x:10,
+			y:100
+		}
+	}
+	console.log(obj.a);
+	console.log(obj['b']);
+	console.log(obj['my key']);
+	console.log(obj.arr[1]);
+	console.log(obj);
+	obj.a=700;	
+	console.log(obj);
+	obj.c=900;
+	console.log(obj);
+	delete obj.arr;	
+	console.log(obj);
+	obj.arr2=[6,7,8,9]	
+	console.log(obj);
+	console.log('arr' in obj);
+	console.log('arr2' in obj);
+	
+	
+	for(let k in obj){
+		console.log(obj[k]);
+	}
+	
+	
+</script>

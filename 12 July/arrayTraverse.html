@@ -1,0 +1,89 @@
+<script>
+var numarray=[4,8,2,7,4,6,1,0,9];
+/*
+for(let i=0;i<numarray.length;i++){
+	console.log(numarray[i]);
+}
+*/
+var sayHello=function(){
+	console.log('hello');
+}
+var x=numarray.forEach(function(element,index,inputArray){
+	console.log(element);
+});
+
+
+
+
+console.log(x);
+console.log('----------------------------');
+var f=numarray.filter(function(element){	
+	return element%2==0;
+});
+
+console.log(f);
+
+// 4rth index =>  even 
+// after 4rth index => odd
+
+console.log('----------------------------');
+var f2=numarray.filter(function(element,index){	
+	if(index<=4) return element%2==0;
+	else return element%2!=0;
+});
+
+console.log(f2);
+
+
+var m=numarray.map(function(element){
+	return Math.sin(element);
+});
+
+console.log(m);
+console.log(numarray);
+
+//['Abc school','Xyz school']
+
+//Reduce
+var arr=[1,2,3,4];
+var r=arr.reduce(function(counter,element){
+	return counter+element;
+},0);
+
+/*
+ index 	-	counter	-	element
+ 0			0			1
+ 1			1			2
+ 2			3			3
+ 3			6			4
+ 10
+*/
+
+console.log(r);
+/*
+Function	Input	Output	
+
+forEach		[]		undefined
+
+filter		[]		[]
+			l   >=  l
+			
+			
+map			[]		[]
+			l    =   l
+			
+			
+reduce		[]		anything
+
+[1,2,3]
+
+[3,2,1]
+*/
+var rev=numarray.reduce(function(counter,element){
+	counter.unshift(element);
+	return counter;
+},[]);
+console.log(numarray);
+console.log(rev);
+
+</script>
