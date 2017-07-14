@@ -1,0 +1,176 @@
+<script>
+	var student = {
+		name: 'Abc',
+		roll: 24,
+		fatherName: 'Pqr',
+		address: {
+			street1: 'Abc Apartments',
+			pincode: '232301',
+			city: 'Gurgaon',
+			country: 'India'
+		},
+		phone: ['7837847', '4784747']
+	};
+
+
+	// Array of Objects
+
+	var car1 = {
+		model: 'Audi',
+		price: 7800
+	}
+	var car2 = {
+		model: 'BMW',
+		price: 8000
+	}
+	var car3 = {
+		model: null,
+		price: 7000
+	}
+
+	var cars = [car1, car2, car3];
+
+	cars.forEach(function (element) {
+		console.log(element.model);
+	});
+
+
+	//function(){}
+
+	var filteredCars = cars.filter(function (car) {
+		return car.price > 7500;
+	});
+
+	console.log(filteredCars);
+
+
+	//Map
+	var mappedCars = cars.map(function (car) {
+		var obj = {
+			price: 0,
+			name: car.model
+		};
+		return obj;
+	});
+
+	console.log('------------');
+	mappedCars.forEach(function (element) {
+		console.log(element);
+	});
+	console.log('------------');
+	cars.forEach(function (element) {
+		console.log(element);
+	});
+
+	var Student = function (name, roll) {
+		return {
+			name: name,
+			roll: roll
+		}
+	}
+	var students = [Student('A', 1), Student('B', 2)];
+	var stu1 = Student();
+	console.log(stu1);
+
+	//class keyword is not used in ES5
+
+	var Stu = function (name, roll) {
+		this.name = name;
+		this.roll = roll || '';
+	}
+	students = [new Stu('Xyz', 1), new Stu('Pqr', 2)]
+	var s1 = new Stu('Amar', 5);
+	console.log(s1);
+	delete s1.roll;
+	console.log(s1);
+
+
+	var stuArray = [
+		new Stu('Efg', 9),
+		new Stu('Efg', 2),
+		new Stu('Rst', 1),
+		new Stu('pqr', 7),
+		new Stu('Mno', 4),
+		new Stu('abc', 5),
+	]
+
+	console.log('--------------------------------------');
+
+	stuArray.forEach(function (student) {
+		console.log(student);
+	});
+
+
+	// stuArray.sort(function(ob1,ob2){
+	// 	if(ob1.roll>ob2.roll) return 1;
+	// 	else if(ob1.roll<ob2.roll) return -1;
+	// 	else return 0;
+	// });
+
+	console.log('--------------------------------------');
+
+	stuArray.forEach(function (student) {
+		console.log(student);
+	});
+
+	var arr = [5, 3, 9, 1];
+
+	arr.sort(function (o1, o2) {
+		console.log(o1, o2);
+		if (o1 > o2) return 1;
+		else if (o1 < o2) return -1;
+		else return 0;
+	})
+
+
+
+	console.log('--------------------------------------');
+
+
+	// A->65 a->97
+	stuArray.sort(function (ob1, ob2) {
+		if (ob1.name.toLowerCase() > ob2.name.toLowerCase()) return 1;
+		else if (ob1.name.toLowerCase() < ob2.name.toLowerCase()) return -1;
+		else {
+			if (ob1.roll > ob2.roll) return 1;
+			else if (ob1.roll < ob2.roll) return -1;
+			else return 0;
+		}
+
+	});
+
+
+
+	stuArray.forEach(function (student) {
+		console.log(student);
+	});
+
+
+
+
+
+	// Assignment Question 1
+	var num=[4,6,8,2,7,1,5,4,6,7,3,8,7,2,1]; // Remove duplicate elements
+	
+	// Assignment question 2 Find minimum and maximum value in previous array
+
+
+	var stuArray = [
+		new Stu('Efg', 9),
+		new Stu('Efg', 2),
+		new Stu('Rst', 1),
+		new Stu('pqr', 1),
+		new Stu('Mno', 4),
+		new Stu('abc', 5),		
+		new Stu('Rst', 1),		
+		new Stu('abc', 5)
+	];
+
+	var i=stuArray.findIndex(function(student,index){
+		return student.name=='abc' && student.roll==5 && index>5;
+	});
+	console.log(i);
+
+	// Assignment Question 3 remove duplicate objects from stuArray
+
+</script>
