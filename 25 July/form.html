@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<form>
+			<input name="x" required minlength="10" pattern="^[789]\d{9}$" maxlength="10">
+			<br />
+			<input name="y" type="number" min="10" max="100">
+			<br />
+			<input name="z" type="email">
+			<br />
+			Gender
+			<input type="radio" name="gender" id="genderM" value="M" required>
+			<label for="genderM">Male</label>
+			<input type="radio" name="gender" id="genderF" value="F" required>
+			<label for="genderF">Female</label>			
+			<br />
+			<select name="fruit" required>
+				<option disabled selected value="">Select any fruit</option>
+				<option value="1">Mango</option>
+				<option>Orange</option>
+				<option>Banana</option>
+				<option>Papaya</option>
+			</select>
+			<br />
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>
