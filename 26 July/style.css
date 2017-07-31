@@ -1,0 +1,23 @@
+div{
+	color:yellow;	
+}
+div#d1{
+	color:red;
+}
+.c2, #m{
+	font-size:25px;
+	color:blue;
+}
+#mchild{
+	color:inherit;	
+}
+.c1{
+	color:green;
+}
+div>span{
+	font-weight:bold;
+}
+div span{
+	text-decoration:underline;
+}
+

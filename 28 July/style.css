@@ -1,0 +1,49 @@
+table#mytable,#mytable td{
+	border: 1px solid;
+	border-collapse:collapse;
+}
+
+#mytable>thead{
+	color:white;
+	background:black;
+}
+
+#mytable>tbody>tr:nth-child(odd){
+	background:grey;
+	color:white;
+}
+
+ul#mylist{
+	list-style-type:square;
+}
+
+ul#mylist>li:nth-child(odd){
+	color:blue;
+}
+
+div{
+	border:1px solid;
+}
+
+#d1{
+	width:40%;
+	display:inline-block;
+}
+
+#d2{
+	width:40%;
+	display:none;
+}
+
+#d3{
+	width:40%;
+	display:inline-block;
+}
+
+
+#stickyheader{
+	position:fixed;
+	background:pink;
+	top:10px;
+	right:60px;
+}
