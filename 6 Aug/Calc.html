@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <link href="css\bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <input type="number" id="num1"> 
+    <input type="number" id="num2">
+    <input type="button" value="Calculate Sum" onclick="DisplaySum()">
+    <input type="button" value="Subtract" onclick="DisplayMinus()">
+    <input type="button" value="Multiply" onclick="DisplayMultiply()">
+    <input type="button" value="Divide" onclick="DisplayDivide()">
+    <input id="result">
+    <p> Calculator </p>
+        
+    <script>
+    function Add(float, float) {
+        return parseFloat(num1.value) + parseFloat(num2.value);
+    }
+    function DisplaySum(){
+        ChangePara("Add");
+        result.value = Add(num1.value, num2.value);
+    }
+    function DisplayMinus(){
+        ChangePara("Minus");
+        result.value = parseFloat(num1.value) - parseFloat(num2.value);
+    }
+    function DisplayDivide(){
+        ChangePara("Divide");
+        result.value = parseFloat(num1.value)/parseFloat(num2.value);
+    }
+    function DisplayMultiply(){
+        ChangePara("Multiply");
+        result.value =  parseFloat(num1.value) * parseFloat(num2.value);
+    }
+    const para = document.querySelector("p")
+    function ChangePara(s) {
+        para.innerHTML = "<span> Done <span>" + s.value;
+    }
+    </script>
+</body>
+</html>

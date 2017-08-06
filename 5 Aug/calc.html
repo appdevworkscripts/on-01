@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<input type="number" id="num1" /><br />
+		<input type="number" id="num2" /><br />
+		<button id="addbtn">Add</button><br />
+		<h1 id="result"></h1>
+		
+		<script>
+			const num1=document.querySelector("#num1");
+			const num2=document.querySelector("#num2");
+			const addbtn=document.querySelector("#addbtn");
+			const result=document.querySelector("#result");
+			addbtn.onclick=function(){
+				result.innerHTML=parseInt(num1.value)+parseInt(num2.value);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<p onclick="changePara()">TEXT</p>
+		<span>Text1</span>
+		
+		<script>
+			const para=document.querySelector("p");
+			const span=document.querySelector("span");
+			function changePara(){
+				para.innerHTML="Changed Text"
+			}
+			function changeSpan(){
+				span.innerHTML="Changed Text"
+			}
+			span.ondblclick=changeSpan;
+		</script>
+	</body>
+</html>

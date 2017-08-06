@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<p>TEXT</p>
+		
+		
+		<script>
+			var i=0;
+			const para=document.querySelector("p");
+			setInterval(function(){
+				i++;
+				if(i%2==0)
+				para.setAttribute("style","color:blue");
+				else
+				para.setAttribute("style","color:red");
+			},1000);
+			
+		</script>
+	</body>
+</html>
