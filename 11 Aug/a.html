@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="myapp">
+
+<head>
+</head>
+
+<body>
+    Hello
+    <div>
+        {{4+5}}
+    </div>
+    <div>
+        {{x=10}} {{x+15}}
+        <input ng-model="x" type="number">
+    </div>
+    <div>
+        {{z}}
+        <input ng-model="y" type="number"> {{y+10}}
+
+        <input ng-model="y" type="number">
+
+        <span ng-click="fun()">Hello</span>
+    </div>
+
+
+    <script src="angular.min.js"></script>
+    <script>
+        z=100; // cannot be rendered directly using {{}} because variables declaired in JS scope are different than variables in Angularjs scope
+        const app=angular.module('myapp',[]);
+        app.run(function($rootScope){
+            console.log('Hello');
+            $rootScope.z=900;
+            $rootScope.fun=function(){
+                console.log('I was called!!!');
+                $rootScope.y=500;
+                $rootScope.z=1500;
+                $rootScope.x=1000000;
+            }
+        });
+    </script>
+</body>
+
+</html>

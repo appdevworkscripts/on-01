@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="calcApp">
+
+<head>
+</head>
+
+<body>
+    
+    <div>
+        <input type="number" ng-model="x"> 
+        <input type="number" ng-model="y"> <br />
+        <button ng-click="calc('+')">+</button>
+        <button ng-click="calc('-')">-</button>
+        <button ng-click="calc('*')">*</button>
+        <button ng-click="calc('/')">/</button>
+            <br />
+            <h1>{{result}}</h1>
+    </div>
+
+
+    <script src="angular.min.js"></script>
+    <script>        
+        const app=angular.module('calcApp',[]);
+        app.run(function($rootScope){
+           $rootScope.calc=function(symbol){
+                switch(symbol){
+                    case "+":
+                        $rootScope.result=$rootScope.x+$rootScope.y;
+                        break;
+                    case "-":
+                        $rootScope.result=$rootScope.x-$rootScope.y;
+                        break;
+                    case "*":
+                        $rootScope.result=$rootScope.x*$rootScope.y;
+                        break;
+                    case "/":
+                        $rootScope.result=$rootScope.x/$rootScope.y;
+                        break;
+                }
+           }
+        });
+    </script>
+</body>
+
+</html>
