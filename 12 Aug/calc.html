@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="calcApp">
+
+<head>
+</head>
+
+<body>
+    
+    <div>
+        <input type="number" ng-model="x"> 
+        <input type="number" ng-model="y"> <br />
+        <button ng-click="result=x+y">+</button>
+        <button ng-click="result=x-y">-</button>
+        <button ng-click="result=x*y">*</button>
+        <button ng-click="result=x/y">/</button>
+            <br />
+            <h1>{{result}}</h1>
+    </div>
+
+
+    <script src="angular.min.js"></script>
+    <script>        
+        const app=angular.module('calcApp',[]);
+       
+    </script>
+</body>
+
+</html>

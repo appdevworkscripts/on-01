@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="myapp">
+
+<head>
+</head>
+
+<body>
+
+
+    <div ng-controller="myformController">
+        <div ng-repeat="x in arr">{{x}}</div>
+
+        <div ng-repeat="student in students">
+            {{student.name}} - {{student.roll}}
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="student in students">
+                    <td>{{student.name}}</td>
+                    <td>{{student.roll}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script src="angular.min.js"></script>
+    <script>
+
+        const app=angular.module('myapp',[]);
+        app.controller('myformController',function($scope){
+            $scope.arr=[1,5,9,7,2];
+
+            $scope.students=[
+                {name:'Abc',roll:1},
+                {name:'pqr',roll:4},
+                {name:'mno',roll:7},
+                {name:'Efg',roll:3}
+            ];
+
+
+        });
+    </script>
+
+</body>
+
+
+</html>

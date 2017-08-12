@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="myapp">
+
+<head>
+</head>
+
+<body>
+    {{y}} - {{x}}
+    <div ng-controller="Actrl">
+        {{y}} - {{x}}
+    </div>
+    
+    <div ng-controller="Bctrl">
+        {{y}} - {{x}}
+    </div>
+    
+
+
+    <script src="angular.min.js"></script>
+    <script>
+        const app = angular.module('myapp', []);
+
+        
+
+        app.controller('Actrl', function ($scope,$rootScope) {
+            $scope.x=200;
+            $scope.y=900;
+            $rootScope.y=3000;
+        })
+        app.controller('Bctrl', function ($rootScope,$scope) {
+            $scope.x=700;
+        })
+
+        app.run(function($rootScope){
+            $rootScope.y=1700;
+        });
+    </script>
+</body>
+
+</html>
