@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="papp">
+    <head>
+    </head>
+    <body>
+        
+        <div ng-controller="myctrl">
+            <form ng-submit="submitForm()">
+                <input ng-model="num" type="number">
+                <button>Submit</button>
+            </form>
+            {{result}}
+        </div>
+
+
+
+
+
+        <script src="angular.min.js"></script>
+        <script>
+            const app=angular.module('papp',[]);
+            app.controller('myctrl',function($scope){
+                // var square=function()
+                function square(a){
+                    return a*a;
+                }
+
+                function asyncSquare(a){
+                    setTimeout(function(){
+                        console.log('Calculated')
+                        return a*a;
+                    },2000);
+                }
+
+                $scope.submitForm=function(){
+                    $scope.result=asyncSquare($scope.num);
+                }
+            })
+        </script>
+    </body>
+</html>

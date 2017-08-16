@@ -19,14 +19,13 @@
     <script src="angular.min.js"></script>
     <script>
         const app = angular.module('myapp', []);
-
-        
-
-        app.controller('Actrl', function ($scope,$rootScope) {
+        function xyz($scope,$rootScope) {
             $scope.x=200;
             $scope.y=900;
             $rootScope.y=3000;
-        })
+        }
+
+        app.controller('Actrl', xyz);
         app.controller('Bctrl', function ($rootScope,$scope) {
             $scope.x=700;
         })
