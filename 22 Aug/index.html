@@ -1,0 +1,59 @@
+<!doctype html>
+<html ng-app="myapp">
+
+<head>
+</head>
+
+<body>
+    <div ng-controller="AController">
+        <form ng-submit="submitForm()">
+            EUR <input type="number" ng-model="eurValue">
+            <button>Submit</button><br /> {{result}}
+        </form>
+    </div>
+    <div ng-controller="BController">
+            <form ng-submit="submitForm()">
+                Address <input type="text" ng-model="address">
+                <button>Submit</button><br /> {{result}}
+            </form>
+        </div>
+    <script src="angular.min.js"></script>
+    <script>
+        const app = angular.module('myapp', []);
+        app.controller('AController', function ($http, $scope) {
+            var obj = {
+                url: 'http://api.fixer.io/latest'
+            }
+
+
+            $scope.submitForm = function () {
+                $http(obj).then(function (response) {
+                    console.log(response);
+                    $scope.result = response.data.rates.INR * $scope.eurValue;
+                }, function (response) {
+                    console.log(response);
+                });
+            }
+        });
+        app.controller('BController',function($scope,$http){
+            $scope.submitForm=function(){
+                var obj={
+                    url:'https://maps.googleapis.com/maps/api/geocode/json',
+                    params:{
+                        key:'AIzaSyCCx3X1ggSs-_Nyt0AkwkVDpresyMevNLs',
+                        address:$scope.address
+                    }
+                }
+
+                $http(obj).then(function(response){
+                    console.log(response);
+                    $scope.result= response.data.results[0].geometry.location.lat + " , " + response.data.results[0].geometry.location.lng;
+                },function(response){
+                    console.log(response);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

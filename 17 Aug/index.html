@@ -1,41 +1,63 @@
 <!doctype html>
 <html ng-app="papp">
-    <head>
-    </head>
-    <body>
-        
-        <div ng-controller="myctrl">
-            <form ng-submit="submitForm()">
-                <input ng-model="num" type="number">
-                <button>Submit</button>
-            </form>
-            {{result}}
-        </div>
+
+<head>
+</head>
+
+<body>
+
+    <div ng-controller="myctrl">
+        <form ng-submit="submitForm()">
+            <input ng-model="num" type="number">
+            <button>Submit</button>
+        </form>
+        {{result}}
+    </div>
 
 
 
 
 
-        <script src="angular.min.js"></script>
-        <script>
-            const app=angular.module('papp',[]);
-            app.controller('myctrl',function($scope){
-                // var square=function()
-                function square(a){
-                    return a*a;
-                }
+    <script src="angular.min.js"></script>
+    <script>
+        const app = angular.module('papp', []);
+        app.controller('myctrl', function ($scope, $q) {
+            // var square=function()
+            function square(a) {
+                return a * a;
+            }
 
-                function asyncSquare(a){
-                    setTimeout(function(){
+            function asyncSquare(a) {
+                setTimeout(function () {
+                    console.log('Calculated')
+                    return a * a;
+                }, 2000);
+            }
+
+            function promisedSquare(a) {
+                return $q(function (resolve, reject) {
+                    setTimeout(function () {
+                        if(a<0) reject('-ve numbers are not allowed')
                         console.log('Calculated')
-                        return a*a;
-                    },2000);
-                }
+                        resolve(a * a);
+                    }, 2000);
+                });
+            }
 
-                $scope.submitForm=function(){
-                    $scope.result=asyncSquare($scope.num);
-                }
-            })
-        </script>
-    </body>
+            $scope.submitForm = function () {
+                // $scope.result = asyncSquare($scope.num);
+                // $scope.result =promisedSquare($scope.num);
+                //promiseObj.then(f1,f2)    -> f1 will be called if promise is resolve else f2 will be called
+
+                promisedSquare($scope.num).then(function (response) {
+                    console.log(response)
+                    $scope.result =response;
+                }, function (response) {
+                    console.log(response)
+                });
+            }
+        })
+    </script>
+</body>
+
 </html>
