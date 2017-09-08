@@ -1,0 +1,95 @@
+<!doctype html>
+<html ng-app="myapp">
+
+<head>
+
+</head>
+
+<body>
+    <div ng-controller="MyController">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="contact in contacts">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.phno}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.address}}</td>
+                    <td>
+                        <button ng-click="deleteContact(contact._id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <form ng-submit="submitForm()">
+            Name <input type="text" ng-model="obj.name"><br /> Phone <input type="text" ng-model="obj.phno"><br /> Email
+            <input type="text" ng-model="obj.email"><br /> Address <input type="text" ng-model="obj.address"><br />
+            <button>Submit</button>
+        </form>
+
+    </div>
+
+    <script src="angular.min.js"></script>
+    <script>
+        const app = angular.module('myapp', []);
+        app.controller('MyController', function ($scope, $http) {
+            var refresh = function () {
+                $http({
+                    url: 'https://zenways-contact.herokuapp.com/api/contacts',
+                    headers: {
+                        key: 'ABCD'
+                    }
+                }).then(function (response) {
+                    console.log(response);
+                    $scope.contacts = response.data.contacts;
+                }, function (response) {
+                    console.log(response)
+                });
+            }
+            refresh();
+
+            $scope.submitForm = function () {
+                $http({
+                    url: 'https://zenways-contact.herokuapp.com/api/contact',
+                    method: 'POST',
+                    headers: {
+                        key: 'ABCD'
+                    },
+                    data: $scope.obj
+                }).then(function (response) {
+                    console.log(response);
+                    $scope.obj={};
+                    refresh();
+                }, function (response) {
+                    console.log(response)
+                });
+            }
+            $scope.deleteContact=function(id){
+                confirm('Are you sure?') && $http({
+                    url:'https://zenways-contact.herokuapp.com/api/contact/'+id,
+                    method:'DELETE',
+                    headers: {
+                        key: 'ABCD'
+                    }
+                }).then(function (response) {
+                    console.log(response);
+                    refresh();
+                },function (response) {
+                    console.log(response)
+                })
+            }
+        });
+    </script>
+</body>
+
+</html>
